@@ -1,5 +1,6 @@
 package com.zendev.mylist.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -76,5 +77,13 @@ public class ListHelper {
         }
         cursor.close();
         return arrayList;
+    }
+
+    public long insertLit(List list) {
+        ContentValues args = new ContentValues();
+        args.put(TITLE, list.getTitle());
+        args.put(DESCRIPTION, list.getDescription());
+        args.put(DATE, list.getDate());
+        return database.insert(DATABASE_TABLE, null, args);
     }
 }
