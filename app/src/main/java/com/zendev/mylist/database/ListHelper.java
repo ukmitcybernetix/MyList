@@ -79,11 +79,19 @@ public class ListHelper {
         return arrayList;
     }
 
-    public long insertLit(List list) {
+    public long insertList(List list) {
         ContentValues args = new ContentValues();
         args.put(TITLE, list.getTitle());
         args.put(DESCRIPTION, list.getDescription());
         args.put(DATE, list.getDate());
         return database.insert(DATABASE_TABLE, null, args);
+    }
+
+    public int updateList(List list) {
+        ContentValues args = new ContentValues();
+        args.put(TITLE, list.getTitle());
+        args.put(DESCRIPTION, list.getDescription());
+        args.put(DATE, list.getDate());
+        return database.update(DATABASE_TABLE, args, _ID + "= '" + list.getId() + "'", null);
     }
 }
