@@ -94,4 +94,8 @@ public class ListHelper {
         args.put(DATE, list.getDate());
         return database.update(DATABASE_TABLE, args, _ID + "= '" + list.getId() + "'", null);
     }
+
+    public int deleteList(int id) {
+        return database.delete(TABLE_LIST, _ID + " = '" + id + "'", null);
+    }
 }
