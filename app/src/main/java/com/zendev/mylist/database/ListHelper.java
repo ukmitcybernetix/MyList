@@ -1,6 +1,7 @@
 package com.zendev.mylist.database;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -27,5 +28,16 @@ public class ListHelper {
             }
         }
         return INSTANCE;
+    }
+
+    public void open() throws SQLException {
+        database = databaseHelper.getReadableDatabase();
+    }
+
+    public void close() {
+        databaseHelper.close();
+
+        if (database.isOpen())
+            database.close();
     }
 }
