@@ -25,7 +25,7 @@ public class ListHelper {
 
     private static SQLiteDatabase database;
 
-    public ListHelper(Context context) {
+    private ListHelper(Context context) {
         databaseHelper = new DatabaseHelper(context);
     }
 

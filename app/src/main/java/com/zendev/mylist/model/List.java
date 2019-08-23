@@ -58,7 +58,7 @@ public class List implements Parcelable {
     public List() {
     }
 
-    protected List(Parcel in) {
+    private List(Parcel in) {
         this.id = in.readInt();
         this.title = in.readString();
         this.description = in.readString();

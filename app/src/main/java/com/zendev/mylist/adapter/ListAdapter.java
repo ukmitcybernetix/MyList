@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
 
-    private ArrayList<List> arrayList = new ArrayList<>();
-    private Activity activity;
+    private final ArrayList<List> arrayList = new ArrayList<>();
+    private final Activity activity;
 
     public ArrayList<List> getList() {
         return arrayList;
@@ -70,7 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
         holder.cvList.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
-            public void onItemClicked(View view, int position) {
+            public void onItemClicked(int position) {
                 Intent intent = new Intent(activity, ListAddUpdateActivity.class);
                 intent.putExtra(ListAddUpdateActivity.EXTRA_POSITION, position);
                 intent.putExtra(ListAddUpdateActivity.EXTRA_LIST, arrayList.get(position));
@@ -84,12 +84,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         return arrayList.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    class ListViewHolder extends RecyclerView.ViewHolder {
 
         final TextView tvTitle, tvDescription, tvDate;
         final CardView cvList;
 
-        public ListViewHolder(@NonNull View itemView) {
+        ListViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tv_item_title);
             tvDescription = itemView.findViewById(R.id.tv_item_description);

@@ -13,10 +13,10 @@ public class CustomOnItemClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        onItemClickCallback.onItemClicked(view, position);
+        onItemClickCallback.onItemClicked(position);
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(View view, int position);
+        void onItemClicked(int position);
     }
 }

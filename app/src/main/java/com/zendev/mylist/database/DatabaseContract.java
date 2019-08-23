@@ -2,15 +2,15 @@ package com.zendev.mylist.database;
 
 import android.provider.BaseColumns;
 
-public class DatabaseContract {
+class DatabaseContract {
 
-    static String TABLE_LIST = "list";
+    static final String TABLE_LIST = "list";
 
     static final class ListColumns implements BaseColumns {
 
-        static String TITLE = "title";
-        static String DESCRIPTION = "description";
-        static String DATE = "date";
+        static final String TITLE = "title";
+        static final String DESCRIPTION = "description";
+        static final String DATE = "date";
 
     }
 }

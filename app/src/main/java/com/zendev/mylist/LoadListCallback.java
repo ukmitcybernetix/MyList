@@ -4,7 +4,7 @@ import com.zendev.mylist.model.List;
 
 import java.util.ArrayList;
 
-public interface LoadListCallback {
+interface LoadListCallback {
     void preExecute();
 
     void postExecute(ArrayList<List> lists);

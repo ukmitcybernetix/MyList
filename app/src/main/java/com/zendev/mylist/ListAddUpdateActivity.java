@@ -25,7 +25,6 @@ import java.util.Locale;
 public class ListAddUpdateActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edtTitle, edtDescription;
-    private Button btnSubmit;
 
     public static final String EXTRA_LIST = "extra_list";
     public static final String EXTRA_POSITION = "extra_position";
@@ -49,7 +48,7 @@ public class ListAddUpdateActivity extends AppCompatActivity implements View.OnC
 
         edtTitle = findViewById(R.id.edt_title);
         edtDescription = findViewById(R.id.edt_description);
-        btnSubmit = findViewById(R.id.btn_submit);
+        Button btnSubmit = findViewById(R.id.btn_submit);
 
         btnSubmit.setOnClickListener(this);
 
@@ -85,11 +84,6 @@ public class ListAddUpdateActivity extends AppCompatActivity implements View.OnC
         }
 
         btnSubmit.setText(btnTitle);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
@@ -143,6 +137,7 @@ public class ListAddUpdateActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int ALERT_DIALOG_DELETE = 20;
         switch (item.getItemId()) {
             case R.id.action_delete:
                 showAlertDialog(ALERT_DIALOG_DELETE);
@@ -160,7 +155,6 @@ public class ListAddUpdateActivity extends AppCompatActivity implements View.OnC
     }
 
     private final int ALERT_DIALOG_CLOSE = 10;
-    private final int ALERT_DIALOG_DELETE = 20;
 
     private void showAlertDialog(int type) {
         final boolean isDialogClose = type == ALERT_DIALOG_CLOSE;

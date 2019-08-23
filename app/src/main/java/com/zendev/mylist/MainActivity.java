@@ -1,5 +1,6 @@
 package com.zendev.mylist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private RecyclerView rvList;
     private ProgressBar progressBar;
-    private FloatingActionButton fabAdd;
     private static final String EXTRA_STATE = "EXTRA_STATE";
     private ListAdapter adapter;
     private ListHelper listHelper;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listHelper.open();
 
         progressBar = findViewById(R.id.progressbar);
-        fabAdd = findViewById(R.id.fab_add);
+        FloatingActionButton fabAdd = findViewById(R.id.fab_add);
         fabAdd.setOnClickListener(this);
 
         adapter = new ListAdapter(this);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(EXTRA_STATE, adapter.getList());
     }
