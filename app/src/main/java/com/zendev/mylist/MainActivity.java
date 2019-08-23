@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle(R.string.title);
+            getSupportActionBar().setTitle(R.string.app_name);
 
         rvList = findViewById(R.id.rv_list);
         rvList.setLayoutManager(new LinearLayoutManager(this));
