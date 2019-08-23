@@ -73,7 +73,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             public void onItemClicked(View view, int position) {
                 Intent intent = new Intent(activity, ListAddUpdateActivity.class);
                 intent.putExtra(ListAddUpdateActivity.EXTRA_POSITION, position);
-                intent.putExtra(ListAddUpdateActivity.EXTRA_NOTE, arrayList.get(position));
+                intent.putExtra(ListAddUpdateActivity.EXTRA_LIST, arrayList.get(position));
                 activity.startActivityForResult(intent, ListAddUpdateActivity.REQUEST_UPDATE);
             }
         }));
