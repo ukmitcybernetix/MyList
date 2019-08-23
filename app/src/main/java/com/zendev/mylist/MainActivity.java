@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rvList.setAdapter(adapter);
 
         if (savedInstanceState == null) {
-            new LoadNotesAsync(listHelper, this).execute();
+            new LoadListAsync(listHelper, this).execute();
         } else {
             ArrayList<List> list = savedInstanceState.getParcelableArrayList(EXTRA_STATE);
             if (list != null) {
@@ -93,12 +93,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.setList(arrayList);
     }
 
-    private static class LoadNotesAsync extends AsyncTask<Void, Void, ArrayList<List>> {
-        private final WeakReference<ListHelper> weakNoteHelper;
+    private static class LoadListAsync extends AsyncTask<Void, Void, ArrayList<List>> {
+        private final WeakReference<ListHelper> weakListHelper;
         private final WeakReference<LoadListCallback> weakCallback;
 
-        private LoadNotesAsync(ListHelper noteHelper, LoadListCallback callback) {
-            weakNoteHelper = new WeakReference<>(noteHelper);
+        private LoadListAsync(ListHelper listHelper, LoadListCallback callback) {
+            weakListHelper = new WeakReference<>(listHelper);
             weakCallback = new WeakReference<>(callback);
         }
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected ArrayList<List> doInBackground(Void... voids) {
 
-            return weakNoteHelper.get().getAllList();
+            return weakListHelper.get().getAllList();
         }
 
         @Override

@@ -68,7 +68,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         holder.tvDate.setText(arrayList.get(position).getDate());
         holder.tvDescription.setText(arrayList.get(position).getDescription());
 
-        holder.cvNote.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+        holder.cvList.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
                 Intent intent = new Intent(activity, ListAddUpdateActivity.class);
@@ -87,14 +87,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     public class ListViewHolder extends RecyclerView.ViewHolder {
 
         final TextView tvTitle, tvDescription, tvDate;
-        final CardView cvNote;
+        final CardView cvList;
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tv_item_title);
             tvDescription = itemView.findViewById(R.id.tv_item_description);
             tvDate = itemView.findViewById(R.id.tv_item_date);
-            cvNote = itemView.findViewById(R.id.cv_item_note);
+            cvList = itemView.findViewById(R.id.cv_item_list);
         }
     }
 }

@@ -3,9 +3,8 @@ package com.zendev.mylist;
 import android.view.View;
 
 public class CustomOnItemClickListener implements View.OnClickListener {
-
-    private int position;
-    private OnItemClickCallback onItemClickCallback;
+    private final int position;
+    private final OnItemClickCallback onItemClickCallback;
 
     public CustomOnItemClickListener(int position, OnItemClickCallback onItemClickCallback) {
         this.position = position;
@@ -14,7 +13,7 @@ public class CustomOnItemClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
+        onItemClickCallback.onItemClicked(view, position);
     }
 
     public interface OnItemClickCallback {
