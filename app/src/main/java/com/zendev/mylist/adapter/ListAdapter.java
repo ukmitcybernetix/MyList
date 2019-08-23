@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zendev.mylist.CustomOnItemClickListener;
+import com.zendev.mylist.ListAddUpdateActivity;
 import com.zendev.mylist.R;
 import com.zendev.mylist.model.List;
 
@@ -70,10 +71,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         holder.cvNote.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Intent intent = new Intent(activity, NoteAddUpdateActivity.class);
-                intent.putExtra(NoteAddUpdateActivity.EXTRA_POSITION, position);
-                intent.putExtra(NoteAddUpdateActivity.EXTRA_NOTE, arrayList.get(position));
-                activity.startActivityForResult(intent, NoteAddUpdateActivity.REQUEST_UPDATE);
+                Intent intent = new Intent(activity, ListAddUpdateActivity.class);
+                intent.putExtra(ListAddUpdateActivity.EXTRA_POSITION, position);
+                intent.putExtra(ListAddUpdateActivity.EXTRA_NOTE, arrayList.get(position));
+                activity.startActivityForResult(intent, ListAddUpdateActivity.REQUEST_UPDATE);
             }
         }));
     }
