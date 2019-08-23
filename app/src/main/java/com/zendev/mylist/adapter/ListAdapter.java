@@ -31,11 +31,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         this.activity = activity;
     }
 
-    public void setList(ArrayList<List> list) {
-        if (list.size() > 0) {
+    public void setList(ArrayList<List> arrayList) {
+        if (arrayList.size() > 0) {
             this.arrayList.clear();
         }
-        this.arrayList.addAll(list);
+        this.arrayList.addAll(arrayList);
         notifyDataSetChanged();
     }
 
